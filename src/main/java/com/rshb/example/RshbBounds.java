@@ -18,8 +18,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 @Path("rest/api/v1/rshb_bonds")
-@Metered
-@Timed(name = "RshbBounds.Timing", description = "A measure of how long it takes to perform the primality test.", unit = MetricUnits.MILLISECONDS)
+@Metered(reusable = true)
+@Timed(name = "RshbBounds.Timing", description = "A measure of how long it takes to perform the primality test.", unit = MetricUnits.MILLISECONDS,reusable = true)
 public class RshbBounds {
 
     @Inject

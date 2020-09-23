@@ -13,8 +13,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;
 
 @RegisterRestClient(configKey = "iss")
-@Metered
-@Timed(name = "RestClientMoex.Timing", description = "A measure of how long it takes to perform the primality test.", unit = MetricUnits.MILLISECONDS)
+@Metered(reusable = true)
+@Timed(name = "RestClientMoex.Timing", description = "A measure of how long it takes to perform the primality test.", unit = MetricUnits.MILLISECONDS,reusable = true)
 public interface RestClientMoex {
 
     @GET

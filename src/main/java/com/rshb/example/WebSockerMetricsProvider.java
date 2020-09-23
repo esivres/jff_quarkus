@@ -36,13 +36,14 @@ public class WebSockerMetricsProvider {
             JsonObject query = Json.createReader(stream).readObject();
             switch (query.getString("action")){
                 case  "clean":
+                    //this breaks the application, at all
                     registries.cleanUp();
                     JsonObjectBuilder response = Json.createObjectBuilder();
                     response.add("success",true);
                     ByteArrayOutputStream outStream = new ByteArrayOutputStream();
                     JsonWriter writer = Json.createWriter(outStream);
                     writer.writeObject(response.build());
-                    writer.close();;
+                    writer.close();
                     session.getAsyncRemote().sendText(new String(outStream.toByteArray()));
                     break;
                 case "metrics":
